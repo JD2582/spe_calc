@@ -11,6 +11,7 @@ class SpeCalcApplicationTests {
         Assertions.assertEquals(8, result);
     }
 
+
     @Test
     public void testSubtraction() {
         double result = SpeCalcApplication.subtraction(5, 3);
