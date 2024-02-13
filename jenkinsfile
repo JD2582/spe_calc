@@ -1,0 +1,50 @@
+pipeline{
+    agent any
+    tools{
+        maven 'Maven'
+    }
+    stages{
+        stage('Build Maven'){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/JD2582/spe_calc']])
+                sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run your tests
+                sh 'mvn test'
+            }
+        }
+        stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t jd2582/spe_project .'
+                }
+            }
+        }
+        stage('push image to docker'){
+            steps{
+                script{
+                    withCredentials([string(credentialsId: 'docker2582', variable: 'darshit')]) {
+                    sh 'docker login -u jd2582 -p ${darshit}'
+
+}
+
+                    sh 'docker push jd2582/spe_project'
+                }
+            }
+        }
+        stage('Run Ansible Playbook') {
+            steps {
+                script {
+                    ansiblePlaybook(
+                        playbook: 'deploy.yml',
+                        inventory: 'inventory'
+                     )
+                }
+            }
+        }
+
+    }
+}
