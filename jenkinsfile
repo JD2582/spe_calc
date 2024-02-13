@@ -38,7 +38,7 @@ pipeline{
                     steps {
                         script {
                             // Stop and remove existing container if it exists
-                            sh 'docker rm -f calculator || true'
+                            sh 'docker rm -f spe_project || true'
                         }
                     }
                 }
