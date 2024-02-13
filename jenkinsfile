@@ -47,4 +47,14 @@ pipeline{
         }
 
     }
+
+    post {
+            always {
+                script {
+                    sh 'docker stop spe_project || true' // Stop the container if running, ignore errors if not found
+                    sh 'docker rm spe_project || true'   // Remove the container, ignore errors if not found
+                }
+            }
+        }
+
 }
