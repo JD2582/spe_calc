@@ -29,12 +29,20 @@ pipeline{
                     withCredentials([string(credentialsId: 'docker2582', variable: 'darshit')]) {
                     sh 'docker login -u jd2582 -p ${darshit}'
 
-}
-
+                    }
                     sh 'docker push jd2582/spe_project'
                 }
             }
         }
+        stage('Stop and Remove Existing Container') {
+                    steps {
+                        script {
+                            // Stop and remove existing container if it exists
+                            sh 'docker rm -f calculator || true'
+                        }
+                    }
+                }
+
         stage('Run Ansible Playbook') {
             steps {
                 script {
