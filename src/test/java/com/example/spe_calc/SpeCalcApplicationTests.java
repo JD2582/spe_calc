@@ -18,7 +18,7 @@ class SpeCalcApplicationTests {
         public void testNaturalLog() {
             double result = SpeCalcApplication.naturalLog(1); // Natural logarithm of 1 is 0
             Assertions.assertEquals(0, result);
-    }
+        }
 
         @Test
         public void testSquareRoot() {
@@ -33,28 +33,28 @@ class SpeCalcApplicationTests {
             Assertions.assertEquals(0, result);
         }
 
-    @Test
-    public void testSquareRootOfPositiveNumber() {
-        double result = SpeCalcApplication.squareRoot(16); // Square root of 16 is 4
-        Assertions.assertEquals(4, result);
-    }
+        @Test
+        public void testSquareRootOfPositiveNumber() {
+            double result = SpeCalcApplication.squareRoot(16); // Square root of 16 is 4
+            Assertions.assertEquals(4, result);
+        }
 
-    @Test
-    public void testSquareRootOfZero() {
-        double result = SpeCalcApplication.squareRoot(0); // Square root of 0 is 0
-        Assertions.assertEquals(0, result);
-    }
+        @Test
+        public void testSquareRootOfZero() {
+            double result = SpeCalcApplication.squareRoot(0); // Square root of 0 is 0
+            Assertions.assertEquals(0, result);
+        }
 
-    @Test
-    public void testPowerFunction() {
-        double result = SpeCalcApplication.power(2, 3); // 2^3 = 8
-        Assertions.assertEquals(8, result);
-    }
+        @Test
+        public void testPowerFunction() {
+            double result = SpeCalcApplication.power(2, 3); // 2^3 = 8
+            Assertions.assertEquals(8, result);
+        }
 
-    @Test
-    public void testPowerFunctionWithNegativeExponent() {
-        double result = SpeCalcApplication.power(2, -3); // 2^(-3) = 1/8
-        Assertions.assertEquals(0.125, result);
-    }
+        @Test
+        public void testPowerFunctionWithNegativeExponent() {
+            double result = SpeCalcApplication.power(2, -3); // 2^(-3) = 1/8
+            Assertions.assertEquals(0.125, result);
+        }
 }
 
