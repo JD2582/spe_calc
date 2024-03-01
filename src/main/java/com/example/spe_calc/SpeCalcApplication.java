@@ -1,6 +1,8 @@
 package com.example.spe_calc;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.util.Scanner;
 import java.lang.Math;
 
@@ -13,7 +15,7 @@ public class SpeCalcApplication {
         Scanner scanner = new Scanner(System.in);
 
         double num1, num2;
-        System.out.print("Select operation:\n1. Addition (+)\n2. Subtraction (-)\n3. Multiplication (*)\n4. Division (/)\n5. Natural Logarithm (ln)\n6. Square Root (√)\n7. Factorial (!)\nEnter your choice: ");
+        System.out.print("Select operation:\n1. Addition (+)\n2. Subtraction (-)\n3. Multiplication (*)\n4. Division (/)\n5. Natural Logarithm (ln)\n6. Square Root (√)\n7. Factorial (!)\n8. Power (^)\nEnter your choice: ");
         int operation = scanner.nextInt();
 
         switch (operation) {
@@ -64,6 +66,13 @@ public class SpeCalcApplication {
                 num1 = scanner.nextDouble();
                 System.out.println("Result: " + factorial(num1));
                 break;
+            case 8:
+                System.out.print("Enter base number: ");
+                num1 = scanner.nextDouble();
+                System.out.print("Enter exponent: ");
+                num2 = scanner.nextDouble();
+                System.out.println("Result: " + power(num1, num2));
+                break;
             default:
                 System.out.println("Invalid operation");
         }
@@ -104,5 +113,9 @@ public class SpeCalcApplication {
             return 1;
         else
             return num * factorial(num - 1);
+    }
+
+    public static double power(double base, double exponent) {
+        return Math.pow(base, exponent);
     }
 }
